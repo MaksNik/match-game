@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+}
+
 a {
     text-decoration: none;
 }
@@ -174,8 +178,8 @@ main {
 
 
 .slider-text-block-1 {
-    width: 382px;
-    height: 67px;
+    width: 381px;
+    height: 66px;
     color: #fb9c06;
     position: absolute;
     left: 20px;
@@ -302,7 +306,6 @@ h3 {
         font-size: 22px;
         color: #6e6d6b;
         font-weight: 400;
-        margin-left: 2px;
         margin-bottom: 28px;
         letter-spacing: 0.5px;
     }
@@ -347,7 +350,7 @@ h3 {
     }
 
         .members article:last-child h4 {
-            margin-left: 20px;
+            margin-left: 17px;
         }
 
     .members figcaption {
@@ -424,6 +427,15 @@ label {
     letter-spacing: 0.55px;
 }
 
+
+input:active {
+    box-shadow: 3px 1px 0 #fb9c06 inset;
+}
+
+textarea:active {
+    box-shadow: 3px 1px 0 #fb9c06 inset;
+}
+
 /*label[for="email"] {
         margin-top:5px;
     }*/
@@ -440,8 +452,6 @@ form .row:nth-child(3) label {
 form .row:last-child {
     margin:0;
 }
-
-
 
 .row {
     clear: both;
@@ -481,20 +491,13 @@ form .row:last-child::after {
     clear: both;
 }
 
-html,body {
-    height:100%;
-    
-}
+
 
 footer {
     height: 70px;
     background-color:#fb9c06;
     box-shadow: 0 3px #cc830f;
     vertical-align:middle;
-    /*position:absolute;
-    left:0;
-    bottom:-404px;
-    right:0;*/
 }
 
 footer .content-wrapper{
