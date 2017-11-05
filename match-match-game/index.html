@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="js/script.js" async></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header class="main-header">
+            <nav>
+                <ul class="menu">
+                    <li>
+                        <button id="skirt-button">Skirt Cards</button>
+                        <ul id="skirt" class="submenu">
+                            <li>
+                                <div class="skirt-item skirt-1"></div>
+                            </li>
+                            <li>
+                                <div class="skirt-item skirt-2"></div>
+                            </li>
+                            <li>
+                                <div class="skirt-item skirt-3"></div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button id="difficulty-button">Game difficulty</button>
+                        <ul id="difficulty" class="submenu">
+                            <li>
+                                <p class="low">LOW (8x1)</p>
+                            </li>
+                            <li>
+                                <p class="medium">MEDIUM (8x2)</p>
+                            </li>
+                            <li>
+                                <p class="high">HIGH (8x3)</p>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="right">
+                        <button id="new-game-button">New Game</button>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div id="game-field"></div>
+            <article id="intro" class="rules">
+                <div class="how-to-play">
+                    <h3>How to play:</h3>
+                    <p>Memory is a counter game where the object is to find pairs.</p>
+                    <p>When the game begins, all pictures are hidden.</p>
+                </div>
+                <div class="to-play">
+                    <h3>To Play:</h3>
+                    <ol>
+                        <li>
+                            <p>Select a card skirt and a game difficulty.</p>
+                        </li>
+                        <li>
+                            <p>Press "Start" button.</p>
+                        </li>
+                        <li>
+                            <p>Select two cards to try to match the pictures.</p>
+                        </li>
+                        <li>
+                            <p>If you match the pictures you can go again.</p>
+                        </li>
+                        <li>
+                            <p>If they don't match it is the computer turn them.</p>
+                        </li>
+                        <li>
+                            <p>The player that finds all pairs wins!</p>
+                        </li>
+                        <li>
+                            <p>Have Fun!</p>
+                        </li>
+                    </ol>
+                </div>
+                <button id="start" class="start-button" disabled>Start</button>
+            </article>
+        </main>
+    </div>
+    
+</body>
+
+</html>

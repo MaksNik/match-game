@@ -1,0 +1,209 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.wrapper{
+    width:1250px;
+    margin:0 auto;
+}
+
+nav{
+    padding:10px 0;
+}
+
+ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+    ul:after {
+        display: block;
+        content: ' ';
+        clear: both;
+        float: none;
+    }
+
+    ul.menu > li {
+        float: left;
+        position: relative;
+        margin-right: 20px;
+        
+    }
+
+ul.menu li.right{
+        float:right;
+        margin:0;
+    }
+
+        ul.menu > li > p {
+            display: block;
+            color: white;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        ul.menu > li:hover {
+            cursor:pointer;
+            
+        }
+
+    ul.submenu {
+        display:none;
+        position: absolute;
+        width: 140px;
+        height:320px;
+        top: 40px;
+        left: 0;
+        background-color: cornflowerblue;
+        border-radius: 5px;
+        z-index:1;
+    }
+
+        ul.submenu > li {
+            display: block;
+            background-color: cornflowerblue;
+        }
+
+            ul.submenu > li > p {
+                display: block;
+                color: white;
+            }
+
+    /*ul.menu > li:hover > ul.submenu {
+        display: block;
+        
+    }*/
+
+button {
+    width: 140px;
+    height: 30px;
+    background-color: cornflowerblue;
+    border-radius: 5px;
+    cursor:pointer;
+}
+
+ul.active{
+    display:block;
+}
+
+.skirt-item {
+    height: 100px;
+    width: 67px;
+    background-size: contain;
+    margin:5px auto;
+
+}
+
+.skirt-1 {
+    background-image: url(../img/skirt/skirt-1.png);
+}
+
+.skirt-2 {
+    background-image: url(../img/skirt/skirt-2.png);
+}
+
+.skirt-3 {
+    background-image: url(../img/skirt/skirt-3.png);
+}
+
+main{
+    height:700px;
+    border:1px solid black;
+    border-radius:20px;
+}
+
+.rules{
+    font-size:24px;
+    width:600px;
+    margin:0 auto;
+    display:block;
+    padding-top:50px;
+    text-align:center;
+}
+
+.rules h3{
+    padding:20px;
+}
+
+
+    .rules:last-child ol{
+        text-align:left;
+        margin-left:95px;
+        margin-bottom:100px;
+    }
+
+.start-button {
+    width: 280px;
+    height: 60px;
+    font-size: 30px;
+    font-weight: 500;
+    color: white;
+    letter-spacing: 2px;
+    background-color: rgba(100, 149, 237, 0.39);
+    cursor:default;
+}
+
+.enabled {
+    background-color: cornflowerblue;
+    cursor:pointer;
+}
+
+.hide{
+    display:none;
+}
+
+.unvisible{
+    visibility:hidden;
+}
+
+/*------------------------------------*/
+
+/* весь контейнер поддерживает перспективу */
+.card {
+    perspective: 1000px;
+    float: left;
+    margin-left: 20px;
+    margin-top: 20px;
+    cursor:pointer;
+}
+/* переверните сторону при проведении мышью */
+.flip {
+    transform: rotateY(180deg);
+}
+.card, .front, .back {
+    width: 134px;
+    height: 200px;
+}
+
+/* здесь находится скорость перевертывания */
+.flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+/* скройте обратную сторону во время переворота */
+.front, .back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* лицевая сторона размещена над обратной */
+.front {
+    z-index: 2;
+}
+
+/* обратная, изначально скрытая сторона */
+.back {
+    transform: rotateY(180deg);
+}
+
+.back img{
+    margin-top:30px;
+}
