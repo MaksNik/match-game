@@ -25,7 +25,7 @@
                     </li>
                     <li>
                         <button id="difficulty-button">Game difficulty</button>
-                        <ul id="difficulty" class="submenu">
+                        <ul id="difficulty" class="diff submenu">
                             <li>
                                 <p class="low">LOW (8x1)</p>
                             </li>
@@ -37,6 +37,8 @@
                             </li>
                         </ul>
                     </li>
+                    <li id="timer" class="timer-item">
+                    </li>
                     <li class="right">
                         <button id="new-game-button">New Game</button>
                     </li>
@@ -45,7 +47,7 @@
         </header>
         <main>
             <div id="game-field"></div>
-            <article id="intro" class="rules">
+            <section id="intro" class="rules">
                 <div class="how-to-play">
                     <h3>How to play:</h3>
                     <p>Memory is a counter game where the object is to find pairs.</p>
@@ -77,8 +79,21 @@
                         </li>
                     </ol>
                 </div>
+                <section class="selected">
+                    <section class="sel-item">
+                        <h4>Skirt:</h4>
+                        <div id="skirt-preview"></div>
+                    </section>
+                    <section class="sel-item">
+                        <h4>Difficulty:</h4>
+                        <div> <p id="diff-preview"></p></div>
+                    </section>
+                </section>
                 <button id="start" class="start-button" disabled>Start</button>
-            </article>
+            </section>
+            <div id="congrats" class="end-game">
+                <h1>Congratulations! You won!</h1>
+            </div>
         </main>
     </div>
     

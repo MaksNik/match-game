@@ -2,7 +2,37 @@
     constructor(difficulty, skirt) {
         this.difficultyGame = difficulty;
         this.skirtCard = skirt;
+        this.isGameStarted = false;
         this.count = 0;
+        this.removedCardsCount = 0; 
+    }
+
+    timer() {
+        let timer = document.querySelector("#timer");
+        let start = new Date();
+        let go = startTimer.bind(this);
+        let interval = setInterval(go, 100);
+
+        function startTimer() {
+            let currTime = new Date() - start;
+            let sec = Math.abs(Math.floor(currTime / 1000) % 60);
+            let min = Math.abs(Math.floor(currTime / 1000 / 60) % 60);
+            let hours = Math.abs(Math.floor(currTime / 1000 / 60 / 60) % 24);
+            if (sec.toString().length === 1) {
+                sec = '0' + sec;
+            }
+            if (min.toString().length === 1) {
+                min = '0' + min;
+            }
+            if (hours.toString().length === 1) {
+                hours = '0' + hours;
+            }
+            timer.innerHTML = hours + ':' + min + ':' + sec;
+            if (!this.isGameStarted) {
+                clearInterval(interval);
+            }
+        }    
+    
     }
 
     createDeck(arr, diff) {
@@ -19,7 +49,7 @@
     }
 
     shuffle(array) {
-        var counter = array.length, temp, index;
+        let counter = array.length, temp, index;
 
         while (counter > 0) {
             index = Math.floor(Math.random() * counter);
@@ -31,19 +61,16 @@
         return array;
     }
 
-    static createCard(obj, cls) {
-        let node = document.createElement('div');
-        node.className = "card";
-        node.id = "card" + obj.id;
-        node.setAttribute("value", obj.value);
-        node.innerHTML = `<div class="flipper"><div class="front ${cls}"></div><div class="back"><img src="${obj.src}"/></div></div>`;
-        return node;
-    }
-
     generate(arr, cls) {
         for (let i in arr) {
-            document.querySelector('#game-field').appendChild(Game.createCard(arr[i], cls));
+            document.querySelector('#game-field').appendChild(arr[i].createCard(cls));
         }
+        this.isGameStarted = true;
+    }
+
+    disableMenuButtons(){
+        document.querySelector("#skirt-button").setAttribute("disabled", "disabled");
+        document.querySelector("#difficulty-button").setAttribute("disabled", "disabled");
     }
 
     hideRules() {
@@ -62,7 +89,7 @@
                 elem.classList.toggle("flip");
                 this.count++;
                 if (this.count === 2) {
-                    setTimeout(() => { this.match(arr) },1000);
+                    setTimeout(() => { this.match(arr) }, 1000);
                     return;
                 }
             }
@@ -74,16 +101,26 @@
             for (let i in arr) {
                 document.getElementById(arr[i].objId).classList.add('unvisible');
                 this.count--;
+                this.removedCardsCount++;
+                if (this.removedCardsCount === this.difficultyGame) {
+                    this.congrats();
+                    this.isGameStarted = false;
+                }
             }
         }
         else {
             for (let i in arr) {
-                document.getElementById(arr[i].objId).firstChild.classList.toggle('flip');                
+                document.getElementById(arr[i].objId).firstChild.classList.toggle('flip');
                 this.count--;
             }
         }
         arr.shift();
         arr.shift();
+    }
+
+    congrats() {
+        document.querySelector('#game-field').remove();
+        document.querySelector('#congrats').classList.add('show');
     }
 }
 
@@ -92,6 +129,15 @@ class Card {
         this.id = ++id;
         this.src = src;
         this.value = value;
+    }
+
+    createCard(cls) {
+        let node = document.createElement('div');
+        node.className = "card";
+        node.id = "card" + this.id;
+        node.setAttribute("value", this.value);
+        node.innerHTML = `<div class="flipper"><div class="front ${cls}"></div><div class="back"><img src="${this.src}"/></div></div>`;
+        return node;
     }
 }
 
@@ -116,10 +162,13 @@ gameField.addEventListener("click", evt => {
 function startGame() {
     game = new Game(difficulty, skirt);
     game.hideRules();
+    game.disableMenuButtons();
     deck = game.createDeck(cards, game.difficultyGame);
     resultDeck = game.shuffle(deck);
     game.generate(resultDeck, game.skirtCard);
+    game.timer();
 }
+
 
 
 
@@ -138,7 +187,7 @@ function bindMenuEvents() {
         show(evt.target);
     });
 
-    newGameNode.addEventListener("click", reload);
+    newGameNode.addEventListener("click", newGame);
 
     skirtNode.addEventListener("click", evt => {
         setSkirtCard(evt.target);
@@ -158,8 +207,21 @@ function bindMenuEvents() {
         }
     }
 
-    function reload() {
-        window.location.reload();
+    function newGame() {
+        let node1 = document.querySelector("#intro");
+        let node2 = document.querySelector("#congrats")
+        if (node1.classList.contains("hide")) {
+            if (node2.classList.contains("show")) {
+                window.location.reload();
+                return;
+            }
+            let answer = confirm("Are you sure?")
+            if (answer) {
+                window.location.reload();
+            }
+            else return;
+        }
+        
     }
 
     function setSkirtCard(node) {
@@ -176,6 +238,7 @@ function bindMenuEvents() {
         if (isChecked()) {
             activateStartButton();
         }
+        document.querySelector("#skirt-preview").classList.add(skirt);
         return;
     }
 
@@ -193,6 +256,7 @@ function bindMenuEvents() {
         if (isChecked()) {
             activateStartButton();
         }
+        document.querySelector("#diff-preview").innerHTML = node.innerText;
         return;
     }
 
