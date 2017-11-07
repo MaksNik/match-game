@@ -1,7 +1,7 @@
 ﻿class Game {
     constructor(difficulty, skirt) {
-        this.difficultyGame = difficulty;
-        this.skirtCard = skirt;
+        this.difficultyGame = null;
+        this.skirtCard = null;
         this.isGameStarted = false;
         this.count = 0;
         this.removedCardsCount = 0;
@@ -122,4 +122,107 @@
         document.querySelector('#game-field').remove();
         document.querySelector('#congrats').classList.add('show');
     }
+
+    gameViewModel() {
+        let skirtMenuNode = document.querySelector("#skirt-button");
+        let difficultyMenuNode = document.querySelector("#difficulty-button");
+        let newGameNode = document.querySelector("#new-game-button");
+        let skirtNode = document.querySelector("#skirt");
+        let difficultyNode = document.querySelector("#difficulty");
+
+        skirtMenuNode.addEventListener("click", evt => {
+            this.show(evt.target);
+        });
+
+        difficultyMenuNode.addEventListener("click", evt => {
+            this.show(evt.target);
+        });
+
+        newGameNode.addEventListener("click", this.newGame);
+
+        skirtNode.addEventListener("click", evt => {
+            this.setSkirtCard(evt.target);
+        });
+
+        difficultyNode.addEventListener("click", evt => {
+            this.setDifficultyGame(evt.target);
+        });
+    }
+
+    show(node) {
+        if (node.nextElementSibling.classList.contains("active")) {
+            node.nextElementSibling.classList.toggle("active");
+            return;
+        }
+        else {
+            node.nextElementSibling.classList.add('active');
+        }
+    }
+
+    newGame() {
+        let node1 = document.querySelector("#intro");
+        let node2 = document.querySelector("#congrats")
+        if (node1.classList.contains("hide")) {
+            if (node2.classList.contains("show")) {
+                window.location.reload();
+                return;
+            }
+            let answer = confirm("Are you sure?")
+            if (answer) {
+                window.location.reload();
+            }
+            else return;
+        }
+    }
+
+    setSkirtCard(node) {
+        if (node.classList.contains("skirt-1")) {
+            this.skirtCard = "skirt-1";
+        }
+        if (node.classList.contains("skirt-2")) {
+            this.skirtCard = "skirt-2";
+        }
+        if (node.classList.contains("skirt-3")) {
+            this.skirtCard = "skirt-3";
+        }
+        node.parentElement.parentElement.classList.toggle("active");
+        if (this.isChecked()) {
+            this.activateStartButton();
+        }
+        document.querySelector("#skirt-preview").classList.add(this.skirtCard);
+        return;
+    }
+
+    setDifficultyGame(node) {
+        if (node.classList.contains("low")) {
+            this.difficultyGame = 8;
+        }
+        if (node.classList.contains("medium")) {
+            this.difficultyGame = 16;
+        }
+        if (node.classList.contains("high")) {
+            this.difficultyGame = 24;
+        }
+        node.parentElement.parentElement.classList.toggle("active");
+        if (this.isChecked()) {
+            this.activateStartButton();
+        }
+        document.querySelector("#diff-preview").innerHTML = node.innerText;
+        return;
+    }
+
+    isChecked() {
+        if (this.skirtCard && this.difficultyGame) {
+            return true;
+        }
+        else return false;
+    }
+
+    activateStartButton() {
+        let start = document.querySelector("#start");
+        start.classList.add('enabled');
+        start.removeAttribute('disabled');
+    }
+
+
 }
