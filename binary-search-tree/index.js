@@ -153,12 +153,21 @@ BinarySearchTree.prototype.contains = function (value) {
 
 
 BinarySearchTree.prototype.traverse = function (bool) {
-    let root = this._root;
-    let arr = [];
-    //function print(root) {
-    //    if (){ }
-    //}
-
+    this.traverse = function(order){
+        let res = [];
+        let inOrder = function inOrder(node) {
+            if (node == null) return;
+            inOrder(node.left);
+            if (order) {
+                res.push(node.value);
+            } else {
+                res.unshift(node.value);
+            }
+            inOrder(node.right);
+        };
+        inOrder(this._root);
+        return res;
+    };
 }
 
 BinarySearchTree.prototype.verify = function () {
