@@ -1,16 +1,70 @@
-﻿* {
+﻿@font-face {
+  font-family: "Helvetica Neue Lt Std BlkCn";
+  src: url("../fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-BlkCn.otf") format("woff2"); }
+
+@font-face {
+  font-family: "Helvetica Neue Lt Std Cn";
+  src: url("../fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-Cn.otf") format("woff2"); }
+
+@font-face {
+  font-family: "Helvetica Neue Lt Std HvCn";
+  src: url("../fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-HvCn.otf") format("woff2"); }
+
+@font-face {
+  font-family: "Helvetica Neue Lt Std Lt";
+  src: url("../fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-Lt.otf") format("woff2"); }
+
+@font-face {
+  font-family: "Helvetica Neue Lt Std LtCn";
+  src: url("../fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-LtCn.otf") format("woff2"); }
+
+@font-face {
+  font-family: "Helvetica Neue Lt Std LtIt";
+  src: url("../fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-LtIt.otf") format("woff2"); }
+
+@font-face {
+  font-family: "Helvetica Neue Lt Std Th";
+  src: url("../fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-Th.otf") format("woff2"); }
+
+@font-face {
+  font-family: "Helvetica Neue Lt Std ThCn";
+  src: url("../fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-ThCn.otf") format("woff2"); }
+
+@font-face {
+  font-family: "Helvetica Neue Lt Std UltLtCn";
+  src: url("../fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-UltLtCn.otf") format("woff2"); }
+
+@font-face {
+  font-family: "Helvetica";
+  src: url("../fonts/Helvetica.otf") format("woff2"); }
+
+@font-face {
+  font-family: "Aempirial";
+  src: url("../fonts/aempirial.ttf") format("woff2"); }
+
+@font-face {
+  font-family: "Bello Script";
+  src: url("../fonts/bello-script.ttf") format("woff"); }
+
+@font-face {
+  font-family: "Luxury Royale JF Regular";
+  src: url("../fonts/Luxury Royale JF Regular.ttf") format("woff2"); }
+
+@font-face {
+  font-family: "Helvetica Neue Lt Std Bold Condenced";
+  src: url(../fonts/HelveticaNeueLTStd/HelveticaLTStd-BoldCond.otf) format("woff2"); }
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box; }
 
 html {
-  font-size: 10px; }
+  font-size: 10px;
+  font-family: Arial, sans-serif; }
 
 ul {
   list-style: none; }
-
-header {
-  font-family: Arial, sans-serif; }
 
 .header-config {
   height: 30px;
@@ -28,10 +82,12 @@ header {
       justify-content: center;
       align-items: center;
       height: 30px;
-      border-right: 1px solid #444444; }
+      border-right: 1px solid #444444;
+      cursor: pointer; }
     .header-config ul li:first-child {
       justify-content: flex-start;
-      width: 100%; }
+      width: 100%;
+      cursor: default; }
 
 .wrapper {
   width: 970px;
@@ -50,14 +106,9 @@ header {
 
 .header-account {
   width: 127px; }
-  .header-account span:before {
-    content: '';
-    display: inline-flex;
+  .header-account i {
     margin-right: 10px;
-    width: 14px;
-    height: 13px;
-    background: url(../img/icons/icons.png);
-    background-position: -5px -5px; }
+    font-size: 1.4rem; }
 
 .header-currency {
   width: 71px; }
@@ -73,6 +124,8 @@ nav {
   align-items: center; }
   nav .logo {
     flex-grow: 1; }
+    nav .logo :hover {
+      cursor: pointer; }
   nav ul {
     font-size: 1.6rem;
     display: flex;
@@ -80,7 +133,8 @@ nav {
     justify-content: flex-end;
     align-items: center; }
     nav ul li {
-      margin-right: 32px; }
+      margin-right: 32px;
+      cursor: pointer; }
       nav ul li i {
         margin-left: 5px; }
     nav ul li:last-child {
@@ -95,11 +149,13 @@ nav {
       border-color: #d6d6d6;
       -webkit-appearance: none;
       background-image: url("../img/icons/arrow1.png");
-      background-position: 202px center;
+      background-position: 194px center;
       background-repeat: no-repeat;
       -moz-appearance: none;
       text-indent: 8px;
-      color: #b4b4b4; }
+      color: #b4b4b4;
+      outline: none;
+      cursor: pointer; }
     nav .cart div.cart-info {
       font-size: 1.1rem;
       display: flex;
@@ -111,6 +167,8 @@ nav {
       border: 1px solid #d6d6d6;
       border-top: none;
       color: #b4b4b4; }
+      nav .cart div.cart-info :hover {
+        cursor: pointer; }
       nav .cart div.cart-info i {
         flex-grow: 1;
         padding-left: 9px;
@@ -129,7 +187,8 @@ button {
   color: white;
   font-family: 'Helvetica Neue Lt Std Th';
   border: none;
-  outline: none; }
+  outline: none;
+  cursor: pointer; }
 
 main .slider {
   display: flex;
@@ -139,6 +198,9 @@ main .slider {
   justify-content: space-between;
   align-items: center;
   margin: 0 auto; }
+  main .slider .slider-control:hover {
+    cursor: pointer;
+    color: black; }
   main .slider .slider-control {
     font-size: 4rem;
     color: #cbcbca;
@@ -212,12 +274,14 @@ main .slider-markers-row {
     width: 10px;
     border-radius: 50%;
     background-color: #867a76;
-    margin-right: 20px; }
+    margin-right: 20px;
+    cursor: pointer; }
+  main .slider-markers-row .slider-marker:nth-child(2) {
+    background-color: #fd926d; }
   main .slider-markers-row .slider-marker:last-child {
     margin: 0; }
   main .slider-markers-row .slider-marker:hover {
-    background-color: #fd926d;
-    cursor: pointer; }
+    background-color: #fd926d; }
 
 main .contact {
   font-family: Arial, sans-serif;
@@ -240,7 +304,8 @@ main .contact {
       font-style: italic;
       text-indent: 9px;
       width: 132px;
-      height: 28px; }
+      height: 28px;
+      outline: none; }
     main .contact .wrapper button {
       color: white;
       height: 29px;
@@ -262,9 +327,12 @@ main .contact {
         width: 55px;
         height: 55px;
         font-size: 1.8rem;
-        margin: auto; }
+        margin: auto;
+        cursor: pointer; }
       main .contact .wrapper .social-networks div:nth-child(2n) {
         background-color: #f7f7f7; }
+      main .contact .wrapper .social-networks div:hover {
+        font-size: 3rem; }
 
 main section.collections {
   display: grid;
@@ -281,7 +349,8 @@ main section.collections {
     grid-row-end: 3;
     background-image: url(../img/pictures/collection_background1.png);
     justify-items: end;
-    align-items: center; }
+    align-items: center;
+    cursor: pointer; }
     main section.collections .item-1 div {
       display: grid;
       justify-items: center;
@@ -331,7 +400,9 @@ main section.collections {
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 2;
-    background-image: url(../img/pictures/collection_background2.png); }
+    background-image: url(../img/pictures/collection_background2.png);
+    text-transform: none;
+    cursor: pointer; }
     main section.collections .item-2 .outer {
       display: grid;
       justify-items: center;
@@ -340,7 +411,8 @@ main section.collections {
       height: 131px;
       border-radius: 50%;
       background-color: white;
-      margin-left: 29px; }
+      margin-left: 29px;
+      box-shadow: 0 4px #4fafa0; }
       main section.collections .item-2 .outer .inner {
         display: grid;
         justify-items: center;
@@ -351,11 +423,12 @@ main section.collections {
         background-color: white;
         border: 1px solid #daeaeb; }
         main section.collections .item-2 .outer .inner p {
-          line-height: 1.2; }
+          line-height: 0; }
         main section.collections .item-2 .outer .inner p:first-child {
           font-family: 'Bello Script',sans-serif;
           font-size: 2.2rem;
-          color: #ffa687; }
+          color: #ffa687;
+          padding-top: 15px; }
         main section.collections .item-2 .outer .inner p:nth-child(2n) {
           font-family: 'Helvetica Neue Lt Std UltLtCn';
           font-size: 4.241rem;
@@ -363,7 +436,8 @@ main section.collections {
         main section.collections .item-2 .outer .inner p:last-child {
           font-family: 'Helvetica Neue Lt Std Bold Condenced';
           font-size: 1.4rem;
-          color: #6a6a6a; }
+          color: #6a6a6a;
+          padding-bottom: 15px; }
   main section.collections .item-3 {
     display: grid;
     justify-items: center;
@@ -372,7 +446,8 @@ main section.collections {
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 3;
-    background-image: url(../img/pictures/collection_background3.png); }
+    background-image: url(../img/pictures/collection_background3.png);
+    cursor: pointer; }
     main section.collections .item-3 p {
       display: flex;
       justify-content: center;
@@ -393,7 +468,8 @@ main section.collections {
     grid-column-end: 4;
     grid-row-start: 2;
     grid-row-end: 3;
-    background-image: url(../img/pictures/collection_background4.png); }
+    background-image: url(../img/pictures/collection_background4.png);
+    cursor: pointer; }
     main section.collections .item-4 div {
       display: flex;
       flex-direction: column;
@@ -419,59 +495,157 @@ main section.collections {
         main section.collections .item-4 div button i {
           margin-left: 10px; }
 
-@font-face {
-  font-family: "Helvetica Neue Lt Std BlkCn";
-  src: url("../fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-BlkCn.otf") format("woff2"); }
+.product-slider-nav {
+  display: flex;
+  justify-content: space-between;
+  height: 47px;
+  text-transform: uppercase; }
 
-@font-face {
-  font-family: "Helvetica Neue Lt Std Cn";
-  src: url("../fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-Cn.otf") format("woff2"); }
+.product-sections {
+  display: flex;
+  justify-content: flex-start;
+  font-family: Arial,sans-serif;
+  font-size: 1.5rem; }
+  .product-sections div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 47px;
+    width: 138px;
+    cursor: pointer; }
+  .product-sections div:hover {
+    background-color: #fd926d;
+    color: white; }
 
-@font-face {
-  font-family: "Helvetica Neue Lt Std HvCn";
-  src: url("../fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-HvCn.otf") format("woff2"); }
+.product-slider-controls {
+  display: flex;
+  justify-content: flex-end; }
 
-@font-face {
-  font-family: "Helvetica Neue Lt Std Lt";
-  src: url("../fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-Lt.otf") format("woff2"); }
+.control {
+  width: 47px;
+  height: 47px;
+  background-color: #f2f2f2; }
 
-@font-face {
-  font-family: "Helvetica Neue Lt Std LtCn";
-  src: url("../fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-LtCn.otf") format("woff2"); }
+.control:first-child:after {
+  display: block;
+  content: '';
+  width: 20px;
+  height: 20px;
+  border-left: 1px solid #979797;
+  border-bottom: 1px solid #979797;
+  transform: rotate(45deg);
+  margin-left: 15px;
+  margin-top: 15px; }
 
-@font-face {
-  font-family: "Helvetica Neue Lt Std LtIt";
-  src: url("../fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-LtIt.otf") format("woff2"); }
+.control:last-child:after {
+  display: block;
+  content: '';
+  width: 20px;
+  height: 20px;
+  border-left: 1px solid #979797;
+  border-bottom: 1px solid #979797;
+  transform: rotate(225deg);
+  margin-left: 10px;
+  margin-top: 15px; }
 
-@font-face {
-  font-family: "Helvetica Neue Lt Std Th";
-  src: url("../fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-Th.otf") format("woff2"); }
+.active {
+  background-color: #fd926d;
+  color: white; }
 
-@font-face {
-  font-family: "Helvetica Neue Lt Std ThCn";
-  src: url("../fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-ThCn.otf") format("woff2"); }
+.control.active:after {
+  border-color: white; }
 
-@font-face {
-  font-family: "Helvetica Neue Lt Std UltLtCn";
-  src: url("../fonts/HelveticaNeueLTStd/HelveticaNeueLTStd-UltLtCn.otf") format("woff2"); }
+.control:hover {
+  background-color: #fd926d;
+  cursor: pointer; }
 
-@font-face {
-  font-family: "Helvetica";
-  src: url("../fonts/Helvetica.otf") format("woff2"); }
+.control:hover:after {
+  border-color: white; }
 
-@font-face {
-  font-family: "Aempirial";
-  src: url("../fonts/aempirial.ttf") format("woff2"); }
+.product-slider {
+  display: flex;
+  flex-flow: row nowrap;
+  overflow: hidden;
+  height: 455px;
+  background-color: #fd926d;
+  align-items: center;
+  justify-content: center; }
 
-@font-face {
-  font-family: "Bello Script";
-  src: url("../fonts/bello-script.ttf") format("woff"); }
+.product {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 220px;
+  height: 395px;
+  margin-right: 30px;
+  background-color: #f7f7f7;
+  font-size: 1.2rem;
+  color: #373737;
+  text-transform: uppercase;
+  cursor: pointer;
+  /*transform:translateX(15px);*/ }
+  .product figure figcaption {
+    display: flex;
+    justify-content: center;
+    margin-top: 9px;
+    line-height: 0.9; }
+  .product p {
+    margin: 7px 0;
+    font-size: 2.2rem;
+    line-height: 1; }
+  .product button {
+    width: 120px;
+    height: 32px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    margin-bottom: 11px; }
+    .product button i {
+      margin-left: 10px;
+      transform: rotate(45deg); }
 
-@font-face {
-  font-family: "Luxury Royale JF Regular";
-  src: url("../fonts/Luxury Royale JF Regular.ttf") format("woff2"); }
+.product:hover {
+  transform: scale(1.05); }
+  .product:hover .pop-up {
+    display: flex; }
 
-@font-face {
-  font-family: "Helvetica Neue Lt Std Bold Condenced";
-  src: url(../fonts/HelveticaNeueLTStd/HelveticaLTStd-BoldCond.otf) format("woff2"); }
+.pop-up {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-transform: uppercase;
+  width: 134px;
+  height: 134px;
+  border-radius: 50%;
+  background-color: #3d3d3d;
+  position: absolute;
+  top: 100px;
+  left: 43px;
+  z-index: 2; }
+  .pop-up p {
+    font-size: 1.2rem; }
+  .pop-up i {
+    font-size: 3rem; }
+
+.sale {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to bottom right, #4c4c4c 50%, white 50%);
+  text-transform: uppercase;
+  color: white; }
+  .sale p {
+    font-family: Helvetica;
+    font-size: 1em;
+    margin-left: 3px;
+    margin-top: 3px;
+    line-height: 0.9; }
 
