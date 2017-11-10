@@ -439,7 +439,7 @@ main {
                     line-height: 0.9;
                 }
 
-                div.separator {
+                div.text-separator {
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -790,5 +790,89 @@ main {
         margin-left: 3px;
         margin-top: 3px;
         line-height: 0.9;
+    }
+}
+
+.sections-separator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 206px;
+
+    div.line {
+        width: 390px;
+        height: 1px;
+        background-color: #d8d8d8;
+    }
+
+    div:nth-child(2) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        background: url(../img/icons/separator.png) no-repeat center;
+        margin: 0 15px;
+
+        .text-container {
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-template-rows: auto auto auto;
+            grid-row-gap: 4px;
+            grid-column-gap: 5px;
+            margin-bottom: 51px;
+            text-transform: uppercase;
+            border: none;
+            font-family: Aempirial;
+            color: white;
+            font-size: 3.6rem;
+            margin-top: 62px;
+
+            .text-1 {
+                display: grid;
+                justify-items: center;
+                align-items: end;
+                grid-column-start: 1;
+                grid-column-end: 3;
+                grid-row-start: 1;
+                grid-row-end: 2;
+                line-height: 0.8;
+            }
+
+            .text-2 {
+                display: grid;
+                justify-items: end;
+                align-items: start;
+                grid-column-start: 1;
+                grid-column-end: 2;
+                grid-row-start: 2;
+                grid-row-end: 4;
+                font-size: 8.077rem;
+                line-height: 0.8;
+            }
+
+            .text-3 {
+                display: grid;
+                justify-items: start;
+                align-items: start;
+                grid-column-start: 2;
+                grid-column-end: 3;
+                grid-row-start: 2;
+                grid-row-end: 3;
+                line-height: 0.7;
+            }
+
+            .text-4 {
+                display: grid;
+                justify-items: start;
+                align-items: start;
+                grid-column-start: 2;
+                grid-column-end: 3;
+                grid-row-start: 3;
+                grid-row-end: 4;
+                line-height: 1;
+            }
+        }
     }
 }

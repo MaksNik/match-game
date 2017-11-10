@@ -370,17 +370,17 @@ main section.collections {
         font-size: 8.208rem;
         color: #4fafa0;
         line-height: 0.9; }
-      main section.collections .item-1 div div.separator {
+      main section.collections .item-1 div div.text-separator {
         display: flex;
         justify-content: center;
         align-items: center;
         margin: 0; }
-        main section.collections .item-1 div div.separator span.line {
+        main section.collections .item-1 div div.text-separator span.line {
           display: block;
           width: 87px;
           height: 1px;
           background-color: #414141; }
-        main section.collections .item-1 div div.separator span:nth-child(2n) {
+        main section.collections .item-1 div div.text-separator span:nth-child(2n) {
           display: flex;
           justify-content: center;
           align-items: center;
@@ -648,4 +648,73 @@ main section.collections {
     margin-left: 3px;
     margin-top: 3px;
     line-height: 0.9; }
+
+.sections-separator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 206px; }
+  .sections-separator div.line {
+    width: 390px;
+    height: 1px;
+    background-color: #d8d8d8; }
+  .sections-separator div:nth-child(2) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: url(../img/icons/separator.png) no-repeat center;
+    margin: 0 15px; }
+    .sections-separator div:nth-child(2) .text-container {
+      display: grid;
+      grid-template-columns: auto auto;
+      grid-template-rows: auto auto auto;
+      grid-row-gap: 4px;
+      grid-column-gap: 5px;
+      margin-bottom: 51px;
+      text-transform: uppercase;
+      border: none;
+      font-family: Aempirial;
+      color: white;
+      font-size: 3.6rem;
+      margin-top: 62px; }
+      .sections-separator div:nth-child(2) .text-container .text-1 {
+        display: grid;
+        justify-items: center;
+        align-items: end;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        line-height: 0.8; }
+      .sections-separator div:nth-child(2) .text-container .text-2 {
+        display: grid;
+        justify-items: end;
+        align-items: start;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 4;
+        font-size: 8.077rem;
+        line-height: 0.8; }
+      .sections-separator div:nth-child(2) .text-container .text-3 {
+        display: grid;
+        justify-items: start;
+        align-items: start;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        line-height: 0.7; }
+      .sections-separator div:nth-child(2) .text-container .text-4 {
+        display: grid;
+        justify-items: start;
+        align-items: start;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        line-height: 1; }
 
