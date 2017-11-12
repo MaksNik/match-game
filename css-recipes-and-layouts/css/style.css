@@ -176,9 +176,8 @@ nav {
     height: 30px;
     object-fit: cover;
     background: url(../img/pictures/logo_big.png) left no-repeat;
-    background-size: contain; }
-    nav .logo :hover {
-      cursor: pointer; }
+    background-size: contain;
+    cursor: pointer; }
   nav ul {
     font-size: 1.6rem;
     display: flex;

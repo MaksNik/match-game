@@ -1,6 +1,5 @@
 @import "fonts.scss";
 @import "payment.scss";
-@import "media.scss";
 
 * {
     margin: 0;
@@ -119,10 +118,7 @@ nav {
         object-fit:cover;
         background:url(../img/pictures/logo_big.png) left no-repeat;
         background-size:contain;
-
-        :hover {
-            cursor: pointer;
-        }
+        cursor:pointer;
     }
 
     height: 106px;
